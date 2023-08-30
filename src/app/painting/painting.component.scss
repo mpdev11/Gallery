@@ -1,4 +1,19 @@
 .card {
-  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 15px rgba(0,0,0, 0.2);
   border: none;
+  text-align: center;
 }
+.card:hover {
+transform: scale(1.01);
+transition-duration: 0.3s;
+}
+
+h5 {
+  color: cornflowerblue;
+}
+p {
+  font-style: italic;
+}
+
+
+

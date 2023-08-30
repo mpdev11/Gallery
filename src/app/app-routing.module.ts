@@ -5,10 +5,10 @@ import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
 
 const routes: Routes = [
-  { path: 'paintings', component: PaintingsComponent },
-  { path: 'drawings', component: DrawingsComponent },
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'slike', component: PaintingsComponent },
+  { path: 'crtezi', component: DrawingsComponent },
+  { path: 'pocetna', component: HomeComponent },
+  { path: '', redirectTo: 'pocetna', pathMatch: 'full' },
 ];
 
 @NgModule({
