@@ -47,22 +47,22 @@ a {
 }
 }
 
-// ::after {
-//   display: block;
-//   content: '';
-//   border-bottom: solid 2px #46ccd5;
-//   transform: scaleX(0);
-//   transition: transform 350ms ease-in-out;
-// }
+.hover-line::after {
+  display: block;
+  content: '';
+  border-bottom: solid 2px #4feef4;
+  transform: scaleX(0);
+  transition: transform 350ms ease-in-out;
+}
 
-// a:after {
-//   transform-origin: 100% 50%;
-// }
+.hover-line:after {
+  transform-origin: 100% 50%;
+}
 
-// a:hover:after {
-//   transform: scaleX(1);
-//   transform-origin: 0% 50%;
-// }
+.hover-line:hover:after {
+  transform: scaleX(1);
+  transform-origin: 0% 50%;
+}
 
 
 
