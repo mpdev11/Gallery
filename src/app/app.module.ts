@@ -8,7 +8,8 @@ import { NavBarComponent } from './core/nav-bar/nav-bar.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { PaintingComponent } from './painting/painting.component';
 import { DrawingsComponent } from './drawings/drawings.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CarouselComponent } from './carousel/carousel.component';
+import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -18,8 +19,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     PaintingsComponent,
     PaintingComponent,
     DrawingsComponent,
+    CarouselComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, NgbCarouselModule],
   providers: [],
   bootstrap: [AppComponent],
 })

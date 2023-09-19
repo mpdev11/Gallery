@@ -3,11 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { DrawingsComponent } from './drawings/drawings.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
+import { CarouselComponent } from './carousel/carousel.component';
 
 const routes: Routes = [
   { path: 'slike', component: PaintingsComponent },
   { path: 'crtezi', component: DrawingsComponent },
   { path: 'pocetna', component: HomeComponent },
+  { path: 'slajd', component: CarouselComponent },
   { path: '', redirectTo: 'pocetna', pathMatch: 'full' },
 ];
 
