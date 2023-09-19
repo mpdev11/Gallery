@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'slike', component: PaintingsComponent },
   { path: 'crtezi', component: DrawingsComponent },
   { path: 'pocetna', component: HomeComponent },
-  { path: 'slajd', component: CarouselComponent },
+  { path: 'slike/slajd', component: CarouselComponent },
   { path: '', redirectTo: 'pocetna', pathMatch: 'full' },
 ];
 

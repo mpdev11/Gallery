@@ -1,10 +1,12 @@
 .carousel-wrapper {
-    width: 100vw;
+    width: 100%;
     height: calc(100vh - 126px);
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    align-content: flex-start;
 }
 .caption {
     position: absolute;
@@ -13,6 +15,7 @@
     font-weight: bold;
     font-size: 20px;
     color: white;
+    opacity: 0.8;
     visibility: hidden;
 }
 .image-wrapper:hover {
@@ -21,14 +24,20 @@
     }
 }
 .image-wrapper {
-    height: calc(100vh - 144.2px);
-    width: 100%;
+    height: calc(100vh - 126px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     img {
-        height: 100%;
+        height: 85%;
     }
+}
+button {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: black;
 }
 
 
