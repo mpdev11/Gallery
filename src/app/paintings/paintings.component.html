@@ -1,7 +1,13 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
-    <div class="col-12 col-md-6 col-lg-3 painting" *ngFor="let num of paintings">
-      <app-painting></app-painting>
+    <div class="col-12 col-md-6 col-lg-3" *ngFor="let num of paintings">
+      <app-painting [imgIndex]="num"></app-painting>
     </div>
+  </div>
+</div> -->
+
+<div class="container">
+  <div *ngFor="let num of paintings">
+    <app-painting [imgIndex]="num"></app-painting>
   </div>
 </div>

@@ -1,3 +1,9 @@
-.painting {
-  padding: calc(var(--bs-gutter-x) * 1);
+// .painting {
+//   padding: calc(var(--bs-gutter-x) * 1);
+// }
+
+
+.container {
+  columns: 4;
+  column-gap: 0px;
 }
