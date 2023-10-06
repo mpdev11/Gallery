@@ -4,7 +4,6 @@
 }
 
 .painting-wrapper {
-    position: absolute;
     z-index: 2;
     height: 80vh;
 }
@@ -14,44 +13,13 @@ img {
 }
 
 .text-wrapper {
-    position: absolute;
     z-index: 1;
     height: 80vh;
     text-align: center;
 
 }
 
-.animation {
-    animation-delay: 5s;
-    animation-duration: 2.5s;
-    animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
+.box1,.box2 {
+    position: absolute;
 }
 
-@keyframes slideLeft {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(-50%);
-    }
-}
-
-@keyframes slideRight {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-.box1 {
-    animation-name: slideLeft;
-}
-
-.box2 {
-    animation-name: slideRight;
-}

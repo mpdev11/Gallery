@@ -12,6 +12,8 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaintingPageComponent } from './painting-page/painting-page.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,13 @@ import { PaintingPageComponent } from './painting-page/painting-page.component';
     CarouselComponent,
     PaintingPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, NgbCarouselModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    NgbCarouselModule,
+    BrowserAnimationsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

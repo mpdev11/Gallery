@@ -1,8 +1,11 @@
 <div class="container content-wrapper">
-  <div class="painting-wrapper animation box1">
+  <div
+    class="painting-wrapper animation box1"
+    [@transition]="animationStatePainting"
+  >
     <img src="../../assets/Paintings/{{ paintingId }}.JPG.jpg" />
   </div>
-  <div class="text-wrapper animation box2">
+  <div class="text-wrapper animation box2" [@transition]="animationStateText">
     <h4>Naziv Slike</h4>
     <br />
     <br />
