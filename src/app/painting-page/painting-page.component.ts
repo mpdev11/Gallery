@@ -32,16 +32,25 @@ import { ActivatedRoute } from '@angular/router';
       state(
         'center',
         style({
-          margin: 'auto',
+          justifyContent: 'center',
         })
       ),
       state(
         'space-evenly',
         style({
-          margin: '0',
+          justifyContent: 'space-evenly',
         })
       ),
-      transition('center <=> space-evenly', animate('500ms ease-in-out')),
+      transition(
+        'center <=> space-evenly',
+        animate(
+          '500ms',
+          keyframes([
+            style({ justifyContent: 'center' }),
+            style({ justifyContent: 'space-evenly' }),
+          ])
+        )
+      ),
     ]),
   ],
 })
