@@ -10,6 +10,7 @@ import { PaintingComponent } from './painting/painting.component';
 import { DrawingsComponent } from './drawings/drawings.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaintingPageComponent } from './painting-page/painting-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
     PaintingComponent,
     DrawingsComponent,
     CarouselComponent,
+    PaintingPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, NgbCarouselModule],
   providers: [],
