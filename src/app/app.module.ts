@@ -11,7 +11,6 @@ import { DrawingsComponent } from './drawings/drawings.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaintingPageComponent } from './painting-page/painting-page.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
