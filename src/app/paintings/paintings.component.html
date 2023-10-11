@@ -1,5 +1,5 @@
 <div class="container painting-container">
-  <div *ngFor="let num of paintings">
-    <app-painting [imgIndex]="num"></app-painting>
+  <div *ngFor="let painting of paintings">
+    <app-painting [painting]="painting"></app-painting>
   </div>
 </div>

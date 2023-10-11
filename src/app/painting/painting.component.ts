@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Painting } from '../model/model';
 
 @Component({
   selector: 'app-painting',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PaintingComponent implements OnInit {
   @Input()
-  imgIndex: Number = 0;
+  painting: Painting = new Painting();
   constructor() {}
 
   ngOnInit(): void {}

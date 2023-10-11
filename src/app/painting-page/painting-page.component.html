@@ -1,11 +1,11 @@
 <div class="content-wrapper">
   <div class="painting-wrapper">
-    <img src="../../assets/Paintings/{{ paintingId }}.JPG.jpg" alt="" />
+    <img src="{{ painting.guid }}" alt="" />
     <div class="painting-info-wrapper">
-      <h2>Naziv Slike</h2>
-      <p>Akrilne boje</p>
-      <p>20x30</p>
-      <p>platno na ramu</p>
+      <h2>{{ painting.title }}</h2>
+      <p>{{ description[0] }}</p>
+      <p>{{ description[1] }}</p>
+      <p>{{ description[2] }}</p>
     </div>
   </div>
 </div>
