@@ -12,7 +12,7 @@ export class PaintingsService {
   constructor(private http: HttpClient) {}
 
   getAllPaintings(): Observable<Painting[]> {
-    const url = `${this.baseUrl}wp-json/wp/v2/media`;
+    const url = `${this.baseUrl}wp-json/wp/v2/media?per_page=50`;
     return this.http.get(url).pipe(
       map((data: any) => {
         return data.map((elem: any) => new Painting(elem));

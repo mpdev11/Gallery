@@ -17,6 +17,7 @@ export class PaintingsComponent implements OnInit {
     this.service.getAllPaintings().subscribe({
       next: (data: Painting[]) => {
         this.paintings = data;
+        console.log(this.paintings);
       },
     });
   }
