@@ -7,12 +7,12 @@ import { Painting } from './model/model';
   providedIn: 'root',
 })
 export class PaintingsService {
-  private baseUrl = 'https://vesninagalerija.com/';
+  private baseUrl = 'https://vesninagalerija.com/wp-json/wp/v2';
 
   constructor(private http: HttpClient) {}
 
   getAllPaintings(): Observable<Painting[]> {
-    const url = `${this.baseUrl}wp-json/wp/v2/media?per_page=50`;
+    const url = `${this.baseUrl}/painting/?acf_format=standard&per_page=50`;
     return this.http.get(url).pipe(
       map((data: any) => {
         return data.map((elem: any) => new Painting(elem));
@@ -20,7 +20,7 @@ export class PaintingsService {
     );
   }
   getOnePainting(id: number): Observable<Painting> {
-    const url = `${this.baseUrl}wp-json/wp/v2/media/${id}`;
+    const url = `${this.baseUrl}/painting/${id}/?_fields=acf&acf_format=standard`;
     return this.http.get(url).pipe(
       map((data: any) => {
         return new Painting(data);

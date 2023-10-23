@@ -1,11 +1,11 @@
 <div class="content-wrapper">
   <div class="painting-wrapper">
-    <img src="{{ painting.guid }}" alt="" />
+    <img src="{{ painting.painting }}" alt="" />
     <div class="painting-info-wrapper">
-      <h2>{{ painting.title }}</h2>
-      <p>{{ description[0] }}</p>
-      <p>{{ description[1] }}</p>
-      <p>{{ description[2] }}</p>
+      <h2>{{ painting.name }}</h2>
+      <p>{{ painting.dimensions }}</p>
+      <p>{{ painting.color_type }}</p>
+      <p>{{ painting.canvas_type }}</p>
     </div>
   </div>
 </div>

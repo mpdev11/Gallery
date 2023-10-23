@@ -29,9 +29,7 @@ export class PaintingPageComponent implements OnInit {
     this.service.getOnePainting(this.painting.id).subscribe({
       next: (painting: Painting) => {
         this.painting = painting;
-        this.description = this.painting.caption.slice(3, -5).split('<br />');
-        this.description[1] = this.description[1].slice(1);
-        this.description[2] = this.description[2].slice(1);
+        console.log(this.painting);
       },
     });
   }

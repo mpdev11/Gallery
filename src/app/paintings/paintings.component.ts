@@ -16,9 +16,23 @@ export class PaintingsComponent implements OnInit {
   getPaintings(): void {
     this.service.getAllPaintings().subscribe({
       next: (data: Painting[]) => {
+        this.shuffle(data);
         this.paintings = data;
-        console.log(this.paintings);
       },
     });
+  }
+  shuffle(array: Painting[]) {
+    let currentIndex = array.length,
+      randomIndex;
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
   }
 }
