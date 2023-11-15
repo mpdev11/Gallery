@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { Painting } from './model/model';
+import { Painting } from '../model/model';
 
 @Injectable({
   providedIn: 'root',

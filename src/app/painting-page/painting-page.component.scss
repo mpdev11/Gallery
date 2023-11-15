@@ -18,6 +18,7 @@ img {
 
 .painting-info-wrapper {
     background: rgba(20, 20, 20, 0.4);
+    font-family: 'Open Sans', sans-serif;
     color: white;
     display: flex;
     flex-direction: column;
@@ -37,6 +38,9 @@ img {
 
 .painting-wrapper:hover .painting-info-wrapper {
     max-height: 60%;
+}
+h2 {
+    margin-bottom: 30px;
 }
 
 

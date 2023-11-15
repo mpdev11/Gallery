@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PaintingsService } from '../paintings.service';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { PaintingsService } from '../services/paintings.service';
 import { Painting } from '../model/model';
+import { NavigationEnd, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-paintings',
@@ -8,31 +10,52 @@ import { Painting } from '../model/model';
   styleUrls: ['./paintings.component.scss'],
 })
 export class PaintingsComponent implements OnInit {
-  constructor(private service: PaintingsService) {}
+  private scrollPositionKey = 'scrollPosition';
   paintings: Painting[] = [];
-  ngOnInit() {
-    this.getPaintings();
+
+  constructor(
+    private paintingsService: PaintingsService,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        localStorage.setItem(this.scrollPositionKey, window.scrollY.toString());
+      }
+    });
+
+    console.log('y:', localStorage.getItem(this.scrollPositionKey));
   }
-  getPaintings(): void {
-    this.service.getAllPaintings().subscribe({
-      next: (data: Painting[]) => {
-        this.shuffle(data);
-        this.paintings = data;
-      },
+
+  ngOnInit() {
+    this.getPaintings().subscribe((data: Painting[]) => {
+      this.paintings = data;
+
+      setTimeout(() => {
+        this.restoreScrollPosition();
+      }, 0);
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        localStorage.setItem(this.scrollPositionKey, window.scrollY.toString());
+      }
     });
   }
-  shuffle(array: Painting[]) {
-    let currentIndex = array.length,
-      randomIndex;
-    while (currentIndex > 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex],
-        array[currentIndex],
-      ];
-    }
 
-    return array;
+  getPaintings(): Observable<Painting[]> {
+    return this.paintingsService.getAllPaintings();
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event): void {
+    localStorage.setItem(this.scrollPositionKey, window.scrollY.toString());
+  }
+
+  restoreScrollPosition() {
+    console.log('y:', localStorage.getItem(this.scrollPositionKey));
+    const storedScrollPosition = localStorage.getItem(this.scrollPositionKey);
+    if (storedScrollPosition) {
+      window.scrollTo(0, parseInt(storedScrollPosition, 10));
+    }
   }
 }

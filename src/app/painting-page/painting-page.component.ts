@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Painting } from '../model/model';
-import { PaintingsService } from '../paintings.service';
+import { PaintingsService } from '../services/paintings.service';
 
 @Component({
   selector: 'app-painting-page',
@@ -29,7 +29,6 @@ export class PaintingPageComponent implements OnInit {
     this.service.getOnePainting(this.painting.id).subscribe({
       next: (painting: Painting) => {
         this.painting = painting;
-        console.log(this.painting);
       },
     });
   }
