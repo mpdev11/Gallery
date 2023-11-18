@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class PaintingsComponent implements OnInit {
   private scrollPositionKey = 'scrollPosition';
   paintings: Painting[] = [];
+  previousPosition: number = 0;
 
   constructor(
     private paintingsService: PaintingsService,
@@ -20,17 +21,22 @@ export class PaintingsComponent implements OnInit {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         localStorage.setItem(this.scrollPositionKey, window.scrollY.toString());
-        console.log('y:', localStorage.getItem(this.scrollPositionKey));
       }
     });
-    console.log('y:', localStorage.getItem(this.scrollPositionKey));
+    this.previousPosition = Number(
+      localStorage.getItem(this.scrollPositionKey)
+    );
   }
 
   ngOnInit() {
-    console.log('y:', localStorage.getItem(this.scrollPositionKey));
     this.getPaintings().subscribe((data: Painting[]) => {
       this.paintings = data;
     });
+  }
+
+  ngAfterContentChecked(): void {
+    console.log('a');
+    this.restoreScrollPosition();
   }
 
   getPaintings(): Observable<Painting[]> {
@@ -38,9 +44,8 @@ export class PaintingsComponent implements OnInit {
   }
 
   restoreScrollPosition() {
-    const storedScrollPosition = localStorage.getItem(this.scrollPositionKey);
-    if (storedScrollPosition) {
-      window.scrollTo(0, parseInt(storedScrollPosition, 10));
+    if (this.previousPosition != 0) {
+      window.scrollTo(0, this.previousPosition);
     }
   }
 }
