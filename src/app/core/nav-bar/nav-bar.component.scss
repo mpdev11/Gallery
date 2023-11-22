@@ -64,5 +64,13 @@ a {
   transform-origin: 0% 50%;
 }
 
+.underline::after {
+  display: block;
+  content: '';
+  transform: scaleX(1);
+  border-bottom: solid 2px #4feef4;
+}
+
+
 
 
