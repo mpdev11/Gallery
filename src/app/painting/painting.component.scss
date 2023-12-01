@@ -1,11 +1,32 @@
 .painting-wrapper {
   margin-bottom: 10px;
+  
 }
 
 img {
   width: 100%;
   object-fit: contain;
 }
+
+// .blur {
+//   filter: blur(3px);
+// }
+
+.blur-load {
+  background-size: cover ;
+  background-position: center;
+}
+
+.blur-load.loaded > img {
+  opacity: 1;
+}
+
+.blur-load > img {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+}
+
+
 
 
 

@@ -35,7 +35,6 @@ export class PaintingsComponent implements OnInit {
   }
 
   ngAfterContentChecked(): void {
-    console.log('a');
     this.restoreScrollPosition();
   }
 
