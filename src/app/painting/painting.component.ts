@@ -22,7 +22,7 @@ export class PaintingComponent implements OnInit {
 
       function loaded() {
         div.classList.add('loaded');
-        // div.classList.remove('blur');
+        div.classList.remove('blur');
       }
 
       if (img && img.complete) {
