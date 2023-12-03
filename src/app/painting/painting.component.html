@@ -1,8 +1,13 @@
-<div
-  class="painting-wrapper blur-load blur"
-  style="background-image: url({{ painting.painting_small }})"
->
+<div class="painting-wrapper">
   <img
+    class="placeholder-painting"
+    [routerLink]="[painting.id]"
+    src="{{ painting.painting_small }}"
+    alt=""
+    loading="lazy"
+  />
+  <img
+    class="main-painting not-visible"
     [routerLink]="[painting.id]"
     src="{{ painting.painting }}"
     alt=""

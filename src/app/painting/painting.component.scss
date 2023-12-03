@@ -1,6 +1,6 @@
 .painting-wrapper {
   margin-bottom: 10px;
-  
+  position: relative;
 }
 
 img {
@@ -8,23 +8,20 @@ img {
   object-fit: contain;
 }
 
-.blur {
+.main-painting {
+  z-index: auto;
+}
+.placeholder-painting {
   filter: blur(3px);
+  position: absolute;
+  left: 0px;
+  z-index: auto;
 }
-
-.blur-load {
-  background-size: cover ;
-  background-position: center;
-}
-
-.blur-load.loaded > img {
-  opacity: 1;
-}
-
-.blur-load > img {
+.not-visible{
   opacity: 0;
-  transition: opacity 400ms ease-in-out;
 }
+
+
 
 
 

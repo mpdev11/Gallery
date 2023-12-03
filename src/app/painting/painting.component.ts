@@ -15,20 +15,21 @@ export class PaintingComponent implements OnInit {
 
   ngOnInit(): void {}
   ngAfterViewInit(): void {
-    const blurDivs = document.querySelectorAll('.blur-load');
+    const imgDisplayDivs = document.querySelectorAll('.painting-wrapper');
 
-    blurDivs.forEach((div) => {
-      const img = div.querySelector('img');
+    imgDisplayDivs.forEach((div) => {
+      const mainImg = div.querySelector('.main-painting');
+      const placeholderImg = div.querySelector('.placeholder-painting');
 
       function loaded() {
-        div.classList.add('loaded');
-        div.classList.remove('blur');
+        if (mainImg && placeholderImg) {
+          mainImg.classList.remove('not-visible');
+          placeholderImg.classList.add('not-visible');
+        }
       }
 
-      if (img && img.complete) {
-        loaded();
-      } else if (img) {
-        img.addEventListener('load', loaded);
+      if (mainImg) {
+        mainImg.addEventListener('load', loaded);
       }
     });
   }
