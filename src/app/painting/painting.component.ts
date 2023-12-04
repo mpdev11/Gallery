@@ -24,6 +24,7 @@ export class PaintingComponent implements OnInit {
 
       function placeholderImageLoaded() {
         if (placeholderImg && loadingAnimationDiv) {
+          placeholderImg.classList.remove('not-visible');
           loadingAnimationDiv.classList.add('lds-dual-ring');
         }
       }
