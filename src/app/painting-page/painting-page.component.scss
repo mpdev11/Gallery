@@ -33,8 +33,13 @@ img {
     overflow: hidden;
     transition: max-height 650ms ease-in-out;  
 }
+
 h2 {
     margin-bottom: 30px;
+}
+
+.change-max-height {
+    max-height: 60%;
 }
 
 @media(hover: hover) {
@@ -44,9 +49,11 @@ h2 {
 }
 
 }
-.change-max-height {
-    max-height: 60%;
-}
+
+
+
+
+
 
 
 
