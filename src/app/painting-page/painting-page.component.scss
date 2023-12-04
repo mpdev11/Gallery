@@ -33,15 +33,21 @@ img {
     overflow: hidden;
     transition: max-height 650ms ease-in-out;  
 }
+h2 {
+    margin-bottom: 30px;
+}
 
-
+@media(hover: hover) {
 
 .painting-wrapper:hover .painting-info-wrapper {
     max-height: 60%;
 }
-h2 {
-    margin-bottom: 30px;
+
 }
+.change-max-height {
+    max-height: 60%;
+}
+
 
 
 

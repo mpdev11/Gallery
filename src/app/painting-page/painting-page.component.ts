@@ -11,6 +11,7 @@ import { PaintingsService } from '../services/paintings.service';
 export class PaintingPageComponent implements OnInit {
   painting: Painting = new Painting();
   description: string[] = [];
+  showInfo: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,5 +32,15 @@ export class PaintingPageComponent implements OnInit {
         this.painting = painting;
       },
     });
+  }
+
+  infoToggler() {
+    this.showInfo = !this.showInfo;
+    const img = document.querySelector('.painting-info-wrapper');
+    if (img && this.showInfo === true) {
+      img.classList.add('change-max-height');
+    } else if (img && this.showInfo === false) {
+      img.classList.remove('change-max-height');
+    }
   }
 }
