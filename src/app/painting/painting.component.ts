@@ -20,16 +20,29 @@ export class PaintingComponent implements OnInit {
     imgDisplayDivs.forEach((div) => {
       const mainImg = div.querySelector('.main-painting');
       const placeholderImg = div.querySelector('.placeholder-painting');
+      const loadingAnimationDiv = div.querySelector('#animation-div');
 
-      function loaded() {
-        if (mainImg && placeholderImg) {
+      function placeholderImageLoaded() {
+        if (placeholderImg && loadingAnimationDiv) {
+          loadingAnimationDiv.classList.add('lds-dual-ring');
+        }
+      }
+
+      if (placeholderImg) {
+        placeholderImg.addEventListener('load', placeholderImageLoaded);
+      }
+
+      function mainImageLoaded() {
+        if (mainImg && placeholderImg && loadingAnimationDiv) {
           mainImg.classList.remove('not-visible');
-          placeholderImg.classList.add('not-visible');
+          mainImg.classList.add('fade-in');
+          placeholderImg.classList.add('fade-out');
+          loadingAnimationDiv.classList.remove('lds-dual-ring');
         }
       }
 
       if (mainImg) {
-        mainImg.addEventListener('load', loaded);
+        mainImg.addEventListener('load', mainImageLoaded);
       }
     });
   }
