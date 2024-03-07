@@ -28,12 +28,13 @@ img {
 
 .fade-in {
   opacity: 1;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 600ms ease-in-out;
 }
 
 .fade-out {
   opacity: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 600ms ease-in-out;
+  
 }
 
 .lds-dual-ring {

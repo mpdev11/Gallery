@@ -34,17 +34,19 @@ export class PaintingsComponent implements OnInit {
     });
   }
 
-  ngAfterContentChecked(): void {
-    this.restoreScrollPosition();
-  }
-
   getPaintings(): Observable<Painting[]> {
     return this.paintingsService.getAllPaintings();
   }
 
-  restoreScrollPosition() {
-    if (this.previousPosition != 0) {
+  ngAfterContentChecked() {
+    if (this.previousPosition !== 0) {
       window.scrollTo(0, this.previousPosition);
     }
   }
+
+  // restoreScrollPosition(): void {
+  //   if (this.previousPosition !== 0) {
+  //     window.scrollTo(0, this.previousPosition);
+  //   }
+  // }
 }

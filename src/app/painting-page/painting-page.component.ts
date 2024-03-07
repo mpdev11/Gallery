@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Painting } from '../model/model';
 import { PaintingsService } from '../services/paintings.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-painting-page',
@@ -15,7 +16,8 @@ export class PaintingPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: PaintingsService
+    private service: PaintingsService,
+    private location: Location
   ) {
     this.route.params.subscribe((params: any) => {
       this.painting.id = params['id'];
@@ -42,5 +44,9 @@ export class PaintingPageComponent implements OnInit {
     } else if (img && this.showInfo === false) {
       img.classList.remove('change-max-height');
     }
+  }
+
+  stepBack() {
+    this.location.back();
   }
 }
