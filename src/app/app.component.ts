@@ -1,19 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { PreloadingService } from './services/preloading.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Gallery';
-
-  constructor(private preloadingService: PreloadingService) {}
-
-  ngOnInit() {
-    this.preloadingService.preloadPaintings().subscribe(() => {
-      console.log('PaintingsComponent preloaded');
-    });
-  }
 }

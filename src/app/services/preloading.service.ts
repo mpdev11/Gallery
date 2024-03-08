@@ -8,14 +8,10 @@ import { Observable, of } from 'rxjs';
 export class PreloadingService {
   preload(route: Route): Observable<any> {
     console.log('Preloading route:', route);
-    if (route.data && route.data['preload']) {
+    if (route.path === 'slike' || route.path === 'pocetna') {
       return of(null);
     } else {
       return of();
     }
-  }
-
-  preloadPaintings(): Observable<any> {
-    return of(null);
   }
 }
