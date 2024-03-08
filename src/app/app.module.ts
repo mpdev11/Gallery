@@ -11,6 +11,8 @@ import { NgbModule, NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaintingPageComponent } from './painting-page/painting-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { CustomReuseStrategy } from './custom-reuse-strategy';
+import { RouteReuseStrategy } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [{ provide: RouteReuseStrategy, useClass: CustomReuseStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
