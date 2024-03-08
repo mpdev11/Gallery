@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { DrawingsComponent } from './drawings/drawings.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
-import { PreloadingService } from './services/preloading.service';
 
 const routes: Routes = [
   {
@@ -18,10 +17,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, {
-      scrollPositionRestoration: 'enabled',
-      preloadingStrategy: PreloadingService,
-    }),
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
   ],
   exports: [RouterModule],
 })

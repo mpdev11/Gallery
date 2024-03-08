@@ -9,9 +9,13 @@ export class PreloadingService {
   preload(route: Route): Observable<any> {
     console.log('Preloading route:', route);
     if (route.data && route.data['preload']) {
-      return of(null); // Preload PaintingsComponent when preload flag is set to true
+      return of(null);
     } else {
-      return of(); // Do not preload other routes
+      return of();
     }
+  }
+
+  preloadPaintings(): Observable<any> {
+    return of(null);
   }
 }
