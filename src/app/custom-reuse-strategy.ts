@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
-  RouteReuseStrategy,
   ActivatedRouteSnapshot,
+  RouteReuseStrategy,
   DetachedRouteHandle,
 } from '@angular/router';
 
@@ -10,26 +10,26 @@ export class CustomReuseStrategy implements RouteReuseStrategy {
   private handlers: { [key: string]: DetachedRouteHandle } = {};
 
   shouldDetach(route: ActivatedRouteSnapshot): boolean {
-    return true; // You can implement your own logic here if needed
+    return !!route.data && !!route.data['reuse'];
   }
 
   store(route: ActivatedRouteSnapshot, handle: DetachedRouteHandle): void {
-    if (route.routeConfig?.path) {
-      this.handlers[route.routeConfig.path] = handle;
+    if (route.data && route.data['reuse']) {
+      this.handlers[route.routeConfig?.path || ''] = handle;
     }
   }
 
   shouldAttach(route: ActivatedRouteSnapshot): boolean {
     return (
-      !!route.routeConfig &&
-      !!route.routeConfig.path &&
-      !!this.handlers[route.routeConfig.path]
+      !!route.data &&
+      !!route.data['reuse'] &&
+      !!this.handlers[route.routeConfig?.path || '']
     );
   }
 
   retrieve(route: ActivatedRouteSnapshot): DetachedRouteHandle | null {
-    return route.routeConfig?.path
-      ? this.handlers[route.routeConfig.path] || null
+    return !!route.data && !!route.data['reuse']
+      ? this.handlers[route.routeConfig?.path || ''] || null
       : null;
   }
 

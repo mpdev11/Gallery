@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
-import { RouteReuseStrategy, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { DrawingsComponent } from './drawings/drawings.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
-import { PaintingPageComponent } from './painting-page/painting-page.component';
-import { CustomReuseStrategy } from './custom-reuse-strategy';
+import { PreloadingService } from './services/preloading.service';
 
 const routes: Routes = [
-  { path: 'slike', component: PaintingsComponent },
-  { path: 'slike/:id', component: PaintingPageComponent },
+  {
+    path: 'slike',
+    component: PaintingsComponent,
+    data: { reuse: true },
+  },
   { path: 'crtezi', component: DrawingsComponent },
-  { path: 'pocetna', component: HomeComponent },
+  { path: 'pocetna', component: HomeComponent, data: { preload: true } },
   { path: '', redirectTo: 'pocetna', pathMatch: 'full' },
 ];
 
@@ -18,9 +20,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'enabled',
+      preloadingStrategy: PreloadingService,
     }),
   ],
   exports: [RouterModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: CustomReuseStrategy }],
 })
 export class AppRoutingModule {}

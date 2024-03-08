@@ -1,8 +1,9 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaintingsService } from '../services/paintings.service';
 import { Painting } from '../model/model';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import { PreloadingService } from '../services/preloading.service';
 
 @Component({
   selector: 'app-paintings',
@@ -29,6 +30,7 @@ export class PaintingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('PaintingsComponent initialized');
     this.getPaintings().subscribe((data: Painting[]) => {
       this.paintings = data;
     });
@@ -40,13 +42,13 @@ export class PaintingsComponent implements OnInit {
 
   ngAfterContentChecked() {
     if (this.previousPosition !== 0) {
-      window.scrollTo(0, this.previousPosition);
+      this.restoreScrollPosition();
     }
   }
 
-  // restoreScrollPosition(): void {
-  //   if (this.previousPosition !== 0) {
-  //     window.scrollTo(0, this.previousPosition);
-  //   }
-  // }
+  restoreScrollPosition(): void {
+    if (this.previousPosition !== 0) {
+      window.scrollTo(0, this.previousPosition);
+    }
+  }
 }

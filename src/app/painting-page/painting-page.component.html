@@ -1,6 +1,6 @@
 <div class="content-wrapper">
   <div class="painting-wrapper" (click)="infoToggler()">
-    <img src="{{ painting.painting }}" alt="" (click)="stepBack()" />
+    <img src="{{ painting.painting }}" alt="" />
     <div class="painting-info-wrapper">
       <h2>{{ painting.name }}</h2>
       <p>{{ painting.dimensions }}</p>
@@ -8,4 +8,5 @@
       <p>{{ painting.canvas_type }}</p>
     </div>
   </div>
+  <button class="stepBack" (click)="stepBack()">Nazad</button>
 </div>
