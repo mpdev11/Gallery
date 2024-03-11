@@ -1,11 +1,13 @@
 .content-wrapper {
     height: 80vh;
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
 }
 .painting-wrapper {
-    height: 80vh;
+    height: 75vh;
     position: relative;
     display: flex;
     justify-content: center;

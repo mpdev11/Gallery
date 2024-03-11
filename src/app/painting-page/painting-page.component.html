@@ -1,4 +1,7 @@
 <div class="content-wrapper">
+  <button class="stepBack btn btn-outline-dark" (click)="stepBack()">
+    Nazad
+  </button>
   <div class="painting-wrapper" (click)="infoToggler()">
     <img src="{{ painting.painting }}" alt="" />
     <div class="painting-info-wrapper">
@@ -8,5 +11,4 @@
       <p>{{ painting.canvas_type }}</p>
     </div>
   </div>
-  <button class="stepBack" (click)="stepBack()">Nazad</button>
 </div>

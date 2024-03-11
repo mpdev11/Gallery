@@ -4,6 +4,7 @@ import { DrawingsComponent } from './drawings/drawings.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
 import { PreloadingService } from './services/preloading.service';
+import { PaintingPageComponent } from './painting-page/painting-page.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
     component: PaintingsComponent,
     data: { reuse: true, preload: true },
   },
+  { path: 'slike/:id', component: PaintingPageComponent },
   { path: 'crtezi', component: DrawingsComponent },
   { path: 'pocetna', component: HomeComponent },
   { path: '', redirectTo: 'pocetna', pathMatch: 'full' },
