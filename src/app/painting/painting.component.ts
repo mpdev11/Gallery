@@ -11,9 +11,9 @@ export class PaintingComponent implements OnInit {
   painting: Painting = new Painting();
   blurDivs = document.querySelectorAll('.blur-load');
 
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   ngAfterViewInit(): void {
     const imgDisplayDivs = document.querySelectorAll('.painting-wrapper');
 

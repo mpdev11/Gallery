@@ -1,17 +1,13 @@
 <div class="painting-wrapper">
-  <img
-    class="placeholder-painting not-visible"
-    [routerLink]="[painting.id]"
-    src="{{ painting.painting_small }}"
-    alt=""
-    loading="lazy"
-  />
-  <img
-    class="main-painting not-visible"
-    [routerLink]="[painting.id]"
-    src="{{ painting.painting }}"
-    alt=""
-    loading="lazy"
-  />
+  <img class="placeholder-painting not-visible"
+       [routerLink]="[painting.id]"
+       src="{{ painting.painting_small }}"
+       alt=""
+       loading="lazy" />
+  <img class="main-painting not-visible"
+       [routerLink]="[painting.id]"
+       src="{{ painting.painting }}"
+       alt=""
+       loading="lazy" />
   <div id="animation-div"></div>
 </div>

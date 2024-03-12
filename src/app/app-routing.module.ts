@@ -3,7 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DrawingsComponent } from './drawings/drawings.component';
 import { PaintingsComponent } from './paintings/paintings.component';
 import { HomeComponent } from './core/home/home.component';
-import { PreloadingService } from './services/preloading.service';
 import { PaintingPageComponent } from './painting-page/painting-page.component';
 
 const routes: Routes = [
@@ -26,6 +25,5 @@ const routes: Routes = [
     }),
   ],
   exports: [RouterModule],
-  providers: [PreloadingService],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
